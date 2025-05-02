@@ -130,20 +130,6 @@ class Buscaminas(private val filas: Int, private val columnas: Int, private val 
         return tablero
     }
 
-    fun imprimirTableroCompleto() {
-        for (fila in tablero) {
-            for (celda in fila) {
-                when {
-                    celda.destapada -> {
-                        if (celda.tieneMina) print("M ")  // Mina
-                        else print("${celda.minasAdyacentes} ")  // Cantidad de minas adyacentes
-                    }
-                    else -> print("X ")  // Celda no destapada
-                }
-            }
-            println()
-        }
-    }
     // Terminar juego
     fun terminarJuego() {
         _juegoTerminado = true

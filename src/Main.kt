@@ -104,7 +104,20 @@ fun main() {
         }
 
         println("Tablero completo:")
-        buscaminas.imprimirTableroCompleto()
+
+
+        for (fila in buscaminas.obtenerTablero()) {
+            for (celda in fila) {
+                when {
+                    celda.destapada -> {
+                        if (celda.tieneMina) print("M ")  // Mina
+                        else print("${celda.minasAdyacentes} ")  // Cantidad de minas adyacentes
+                    }
+                    else -> print("X ")  // Celda no destapada
+                }
+            }
+            println()
+        }
 
         println("¡Juego terminado!")
     } catch (e: IllegalArgumentException) {
